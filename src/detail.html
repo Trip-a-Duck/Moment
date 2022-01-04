@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous" />
+  </head>
+  <body>
+    <section class="container">
+      <header class="post-header">
+        <button class="go-back-btn">◀</button>
+        <h1>MOMENT</h1>
+      </header>
+      <article class="detail">
+        <header class="detail__header">
+          <span class="detail__title">Title</span>
+          <div class="func_buttons">
+            <button class="edit">수정</button>
+            <button class="delete">삭제</button>
+          </div>
+        </header>
+        <section class="detail__img">
+          <img src="../img/france2.jpg" alt="detail-image" />
+        </section>
+        <section class="info">
+          <button class="detail__like-button">
+            <i class="far fa-heart"></i>
+          </button>
+          <button class="detail__like-button no-display">
+            <i class="fas fa-heart"></i>
+          </button>
+          <span class="uploader-id">uploader-id</span>
+        </section>
+        <!-- 동적으로 받아와야 함 -->
+        <section class="detail-content">
+          동적으로받아와야된다동적으로받아와야된다동적으로받아와야된다동적으로받아와야된다
+          동적으로받아와야된다동적으로받아와야된다동적으로받아와야된다동적으로받아와야된다
+          동적으로받아와야된다동적으로받아와야된다동적으로받아와야된다동적으로받아와야된다
+        </section>
+        <setcion class="comment">
+          <form class="user-comment">
+            <label for="user-conmmet-input" aria-label="댓글">지금사용자</label>
+            <input type="text" id="user-commet-input" placeholder="댓글을 입력해 주세요." />
+          </form>
+          <button class="user-comment-btn">댓글 달기</button>
+        </setcion>
+        <section class="detail-comments">
+          <span class="user-id">user-id</span>
+          <span class="detail-comment">댓글댓글댓글댓글</span>
+        </section>
+      </article>
+    </section>
+  </body>
+</html>

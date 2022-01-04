@@ -1,6 +1,6 @@
 @use '../utils' as *;
 
-.container {
+.container-post {
   text-align: center;
   padding-top: rem(50px);
 }
@@ -50,13 +50,6 @@
   }
 }
 
-button {
-  height: rem(50px);
-  width: rem(100px);
-  border-radius: 10px;
-  font-size: 20px;
-}
-
 .upload-btn {
   background-color: rgb(61, 248, 133);
 }
@@ -71,6 +64,15 @@ button {
   margin-top: rem(20px);
   display: flex;
   justify-content: space-between;
+  button {
+    height: rem(50px);
+    width: rem(100px);
+    border-radius: 10px;
+    font-size: 20px;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+  }
 }
 
 .uploaded-image {
@@ -103,9 +105,4 @@ button {
   &:focus {
     outline: none;
   }
-}
-
-button {
-  display: block;
-  cursor: pointer;
 }
