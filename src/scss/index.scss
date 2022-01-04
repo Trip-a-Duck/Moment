@@ -1,4 +1,4 @@
-@use './base';
-@use './pages';
-@use './utils';
-@use './layout';
+@forward './base';
+@forward './pages';
+@forward './utils';
+@forward './layout';
