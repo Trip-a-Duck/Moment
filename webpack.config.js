@@ -21,11 +21,18 @@ module.exports = {
       template: 'src/upload.html',
       chunks: ['upload'],
     }),
+    new HtmlWebpackPlugin({
+      title: 'Moment',
+      filename: 'detail.html',
+      template: 'src/detail.html',
+      chunks: ['detail'],
+    }),
     new MiniCssExtractPlugin(),
   ],
   entry: {
     main: './src/js/index.js',
     upload: './src/js/upload.js',
+    detail: './src/js/detail.js',
   },
   output: {
     path: path.resolve(__dirname, `${ENVIRONMENT === DEVELOPMENT ? 'public' : 'dist'}`),
