@@ -1,0 +1,111 @@
+@use '../utils' as *;
+
+.container {
+  text-align: center;
+  padding-top: rem(50px);
+}
+
+.post {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(50px);
+}
+
+.post-header {
+  width: 100%;
+  height: rem(50px);
+  text-align: center;
+  position: relative;
+
+  .go-back-btn {
+    all: unset;
+    position: absolute;
+    width: rem(40px);
+    height: 100%;
+    left: 0;
+    top: rem(-10px);
+    font-size: rem(30px);
+    cursor: pointer;
+  }
+
+  h1 {
+    font-size: rem(40px);
+    font-weight: bold;
+  }
+}
+.post-title-form {
+  margin: rem(30px) auto 0;
+
+  #post-title {
+    font-size: 20px;
+    width: rem(380px);
+    height: rem(35px);
+    padding: 0 rem(15px);
+    border: none;
+    border-bottom: rem(3px) solid black;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+button {
+  height: rem(50px);
+  width: rem(100px);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.upload-btn {
+  background-color: rgb(61, 248, 133);
+}
+
+.post-btn {
+  margin-top: rem(20px);
+  margin-left: auto;
+  background-color: #5992ff;
+}
+
+.buttons {
+  margin-top: rem(20px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.uploaded-image {
+  display: block;
+  width: rem(450px);
+  height: rem(450px);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid black;
+  margin: rem(20px) auto rem(10px);
+
+  span {
+    display: inline-block;
+    height: 100%;
+    padding-top: rem(200px);
+  }
+}
+
+.post-content {
+  margin-left: rem(40px);
+}
+
+#post-desc {
+  margin-top: rem(20px);
+  width: rem(380px);
+  height: rem(502px);
+  padding: rem(20px) 0 0 rem(20px);
+  font-size: rem(16px);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  display: block;
+  cursor: pointer;
+}
