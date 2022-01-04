@@ -39,6 +39,7 @@
   right: rem(10px);
 }
 
+// items
 .posts-container {
   display: flex;
   flex-direction: row;
@@ -52,8 +53,11 @@
   display: none;
 }
 
-.post-container {
+// item
+.post {
   margin: 0 rem(15px);
+  margin-bottom: rem(90px);
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -64,6 +68,9 @@
   }
   img:hover {
     border: 4px solid lightblue;
+  }
+  &__like-button {
+    border: 10px solid black;
   }
 }
 
