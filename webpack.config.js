@@ -9,24 +9,47 @@ const ENVIRONMENT = process.env.NODE_ENV || DEVELOPMENT;
 module.exports = {
   mode: ENVIRONMENT,
   plugins: [
-    new HtmlWebpackPlugin({ title: 'Moment' }),
-    // new HtmlWebpackPlugin({
-    //   title: 'Moment',
-    //   filename: 'main.html',
-    //   template: 'src/main.html',
-    // }),
+    new HtmlWebpackPlugin({
+      title: 'Moment',
+      filename: 'index.html',
+      template: 'src/index.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Moment',
+      filename: 'upload.html',
+      template: 'src/upload.html',
+      chunks: ['upload'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Moment',
+      filename: 'detail.html',
+      template: 'src/detail.html',
+      chunks: ['detail'],
+    }),
     new MiniCssExtractPlugin(),
   ],
-  entry: './src/js/index.js',
+  entry: {
+    main: './src/js/index.js',
+    upload: './src/js/upload.js',
+    detail: './src/js/detail.js',
+  },
   output: {
-    path: path.resolve(
-      __dirname,
-      `${ENVIRONMENT === DEVELOPMENT ? 'public' : 'dist'}/`
-    ),
-    filename: 'main.js',
+    path: path.resolve(__dirname, `${ENVIRONMENT === DEVELOPMENT ? 'public' : 'dist'}`),
+    clean: true,
   },
   module: {
     rules: [
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: { minimize: true },
+          },
+        ],
+        include: [path.resolve(__dirname, 'src')],
+      },
       {
         test: /\.s?css/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
@@ -40,6 +63,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime'],
           },
         },
       },

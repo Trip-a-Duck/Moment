@@ -1,0 +1,28 @@
+@use './unit' as *;
+@use 'sass:math';
+
+//패딩 관련 mixin
+@mixin paddingY($paddingY: 0) {
+  padding-top: rem($paddingY);
+  padding-bottom: rem($paddingY);
+}
+
+@mixin paddingX($paddingX: 0) {
+  padding-right: rem($paddingX);
+  padding-left: rem($paddingX);
+}
+
+@mixin marginY($marginY: 0) {
+  margin-top: rem($marginY);
+  margin-bottom: rem($marginY);
+}
+
+@mixin marginX($marginX: 0) {
+  margin-right: rem($marginX);
+  margin-left: rem($marginX);
+}
+
+@mixin autoMargin($marginX: auto) {
+  margin-left: $marginX;
+  margin-right: $marginX;
+}

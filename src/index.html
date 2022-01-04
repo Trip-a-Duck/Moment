@@ -1,13 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="./js/index.js"></script>
+    <title>Moment</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous" />
   </head>
   <body>
-    <h1>hi</h1>
+    <div class="container">
+      <header class="header">
+        <h1>Moment</h1>
+        <div class="icon-control">
+          <select class="select-country" placeholder="Select Country">
+            <option value="USA">USA</option>
+            <option value="South-Korea">South-Korea</option>
+            <option value="Canada">Canada</option>
+          </select>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </header>
+      <main>
+        <!-- 동적으로 생성되어야 하는 데이터들 -->
+        <div class="posts-container">
+          <div class="post">
+            <span class="post__user-id">user_id</span>
+            <a class="move-to-description" href="./detail.html">
+              <img src="../img/france1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button no-display">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>에펠탑</span>
+            </div>
+          </div>
+
+          <div class="post">
+            <span class="post__user-id">user_id2</span>
+            <a class="move-to-description">
+              <img src="../img/france2.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button no-display">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>자유의 여신상</span>
+            </div>
+          </div>
+
+          <div class="post">
+            <span class="post__user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button no-display">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
+
+          <div class="post">
+            <span class="post__user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button no-display">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
+
+          <div class="post">
+            <span class="post__user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button no-display">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
+
+          <div class="post">
+            <span class="post__user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button no-display">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
