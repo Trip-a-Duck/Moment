@@ -37,7 +37,9 @@
   }
 
   .func_buttons {
+    display: flex;
     button {
+      margin-left: rem(20px);
       height: rem(40px);
       width: rem(70px);
       border-radius: 10px;
@@ -60,12 +62,8 @@
   .info {
     width: rem(450px);
     margin: 10px auto;
-    text-align: left;
+    display: flex;
   }
-}
-
-.uploader-id {
-  margin-left: rem(10px);
 }
 
 .detail-content {
