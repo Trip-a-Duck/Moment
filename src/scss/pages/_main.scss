@@ -1,0 +1,97 @@
+@import '../utils';
+
+.header {
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 800;
+  padding: 2rem;
+  margin-bottom: rem(10px);
+  font-size: 4rem;
+  h1 {
+    padding: rem(10px);
+  }
+  i {
+    font-size: rem(30px);
+  }
+}
+
+.select-country {
+  padding-left: rem(15px);
+  width: rem(250px);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  font-size: rem(25px);
+  z-index: 10;
+}
+
+// icon control
+.icon-control {
+  position: relative;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-chevron-down {
+  position: absolute;
+  right: rem(10px);
+}
+
+// items
+.posts-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: space-around;
+  background-image: url('../../img/main_bg.jpg');
+}
+
+.no-display {
+  display: none;
+}
+
+// item
+.post {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 rem(15px);
+  margin-bottom: rem(90px);
+  position: relative;
+  font-weight: 700;
+  font-size: rem(20px);
+
+  img {
+    width: rem(230px);
+    height: rem(230px);
+  }
+  img:hover {
+    border: 4px solid lightblue;
+  }
+
+  &__user-id {
+    margin: 0 0 rem(8px) rem(6px);
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 rem(10px) 0 rem(4px);
+    // font-weight: 700;
+  }
+
+  &__like-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    font-size: rem(25px);
+    color: hotpink;
+  }
+}

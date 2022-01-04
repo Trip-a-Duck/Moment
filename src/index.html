@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,84 +12,118 @@
       crossorigin="anonymous" />
   </head>
   <body>
-    <style>
-      *,
-      *::after,
-      *::before {
-        box-sizing: border-box;
-      }
+    <div class="container">
+      <header class="header">
+        <h1>Moment</h1>
+        <div class="icon-control">
+          <select class="select-country" placeholder="Select Country">
+            <option value="USA">USA</option>
+            <option value="South-Korea">South-Korea</option>
+            <option value="Canada">Canada</option>
+          </select>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </header>
+      <main>
+        <!-- 동적으로 생성되어야 하는 데이터들 -->
+        <div class="posts-container">
+          <div class="post">
+            <span class="post__user-id">user_id</span>
+            <a class="move-to-description" href="./test.html">
+              <img src="../img/france1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button no-display">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>에펠탑</span>
+            </div>
+          </div>
 
-      header {
-        text-align: center;
-      }
+          <div class="post">
+            <span class="post__user-id">user_id2</span>
+            <a class="move-to-description">
+              <img src="../img/france2.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button no-display">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>자유의 여신상</span>
+            </div>
+          </div>
 
-      body {
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        font-family: 'Open Sans';
-        font-weight: 300;
-      }
-      .no-display {
-        display: none;
-      }
+          <div class="post">
+            <span class="post__user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button no-display">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
 
-      .container {
-        width: 60%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
+          <div class="post">
+            <span class="post__user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button no-display">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
 
-      .post-container {
-        background: red;
-        display: flex;
-        flex-direction: column;
-      }
+          <div class="post">
+            <span class="post__user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button no-display">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
 
-      .post-container img {
-        width: 200px;
-        height: 300px;
-      }
-      .post-under-bar {
-        display: flex;
-      }
-    </style>
-    <header class="header">
-      <h1>Moment</h1>
-      <label for="select-country"></label>
-      <select id="select-country" placeholder="Select Country">
-        <option value="USA">USA</option>
-        <option value="South-Korea">South-Korea</option>
-        <option value="Canada">Canada</option>
-      </select>
-    </header>
-    <main>
-      <!-- 동적으로 생성되어야 하는 데이터들 -->
-      <div class="container">
-        <div class="post-container">
-          <span class="post-user-id">user_id</span>
-          <a class="move-to-description" href="./test.html">
-            <img src="../img/france1.jpg" alt="post-image" />
-          </a>
-          <div class="post-under-bar">
-            <i class="far fa-heart"></i><i class="fas fa-heart"></i>
-            <span>에펠탑</span>
+          <div class="post">
+            <span class="post__user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post__info">
+              <button class="post__like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="post__like-button no-display">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
           </div>
         </div>
-
-        <div class="post-container">
-          <span class="post-user-id">user_id2</span>
-          <a class="move-to-description">
-            <img src="../img/france1.jpg" alt="post-image" />
-          </a>
-          <div class="post-under-bar">
-            <i class="far fa-heart"></i><i class="fas fa-heart"></i>
-            <span>자유의 여신상</span>
-          </div>
-        </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
