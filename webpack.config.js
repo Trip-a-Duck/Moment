@@ -13,13 +13,22 @@ module.exports = {
       title: 'Moment',
       filename: 'index.html',
       template: 'src/index.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Moment',
+      filename: 'upload.html',
+      template: 'src/upload.html',
+      chunks: ['upload'],
     }),
     new MiniCssExtractPlugin(),
   ],
-  entry: './src/js/index.js',
+  entry: {
+    main: './src/js/index.js',
+    upload: './src/js/upload.js',
+  },
   output: {
-    path: path.resolve(__dirname, `${ENVIRONMENT === DEVELOPMENT ? 'public' : 'dist'}/`),
-    filename: 'main.js',
+    path: path.resolve(__dirname, `${ENVIRONMENT === DEVELOPMENT ? 'public' : 'dist'}`),
     clean: true,
   },
   module: {
@@ -47,6 +56,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime'],
           },
         },
       },
