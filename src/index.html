@@ -12,50 +12,118 @@
       crossorigin="anonymous" />
   </head>
   <body>
-    <header class="header">
-      <h1>Moment</h1>
-      <label for="select-country"></label>
-      <select id="select-country" placeholder="Select Country">
-        <option value="USA">USA</option>
-        <option value="South-Korea">South-Korea</option>
-        <option value="Canada">Canada</option>
-      </select>
-    </header>
-    <main>
-      <!-- 동적으로 생성되어야 하는 데이터들 -->
-      <div class="container">
-        <div class="post-container">
-          <span class="post-user-id">user_id</span>
-          <a class="move-to-description" href="./test.html">
-            <img src="../img/france1.jpg" alt="post-image" />
-          </a>
-          <div class="post-under-bar">
-            <button class="like-button">
-              <i class="far fa-heart"></i>
-            </button>
-            <button class="like-button">
-              <i class="fas fa-heart"></i>
-            </button>
-            <span>에펠탑</span>
-          </div>
+    <div class="container">
+      <header class="header">
+        <h1>Moment</h1>
+        <div class="icon-control">
+          <select class="select-country" placeholder="Select Country">
+            <option value="USA">USA</option>
+            <option value="South-Korea">South-Korea</option>
+            <option value="Canada">Canada</option>
+          </select>
+          <i class="fas fa-chevron-down"></i>
         </div>
+      </header>
+      <main>
+        <!-- 동적으로 생성되어야 하는 데이터들 -->
+        <div class="posts-container">
+          <div class="post-container">
+            <span class="post-user-id">user_id</span>
+            <a class="move-to-description" href="./test.html">
+              <img src="../img/france1.jpg" alt="post-image" />
+            </a>
+            <div class="post-under-bar">
+              <button class="like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>에펠탑</span>
+            </div>
+          </div>
 
-        <div class="post-container">
-          <span class="post-user-id">user_id2</span>
-          <a class="move-to-description">
-            <img src="../img/france1.jpg" alt="post-image" />
-          </a>
-          <div class="post-under-bar">
-            <button class="like-button">
-              <i class="far fa-heart"></i>
-            </button>
-            <button class="like-button">
-              <i class="fas fa-heart"></i>
-            </button>
-            <span>자유의 여신상</span>
+          <div class="post-container">
+            <span class="post-user-id">user_id2</span>
+            <a class="move-to-description">
+              <img src="../img/france2.jpg" alt="post-image" />
+            </a>
+            <div class="post-under-bar">
+              <button class="like-button no-display">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>자유의 여신상</span>
+            </div>
+          </div>
+
+          <div class="post-container">
+            <span class="post-user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post-under-bar">
+              <button class="like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
+
+          <div class="post-container">
+            <span class="post-user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post-under-bar">
+              <button class="like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
+
+          <div class="post-container">
+            <span class="post-user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post-under-bar">
+              <button class="like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
+          </div>
+
+          <div class="post-container">
+            <span class="post-user-id">user_id3</span>
+            <a class="move-to-description">
+              <img src="../img/korea1.jpg" alt="post-image" />
+            </a>
+            <div class="post-under-bar">
+              <button class="like-button">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>teststest</span>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
