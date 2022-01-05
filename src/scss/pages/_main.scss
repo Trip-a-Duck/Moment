@@ -1,8 +1,9 @@
 @use '../base/' as *;
 @use '../utils' as *;
-@use '../layout/container';
+@use '../layout/container' as *;
 
 .header {
+  position: relative;
   text-align: center;
   font-family: 'Open Sans';
   font-weight: 800;
@@ -14,6 +15,28 @@
   }
   i {
     font-size: rem(30px);
+  }
+  .posting-btn {
+    position: absolute;
+    // left: rem(80px);
+    left: 0;
+    top: rem(30px);
+    font-size: rem(15px);
+    text-decoration: none;
+    border: 1px solid lightblue;
+    border-radius: rem(5px);
+    background-color: lightblue;
+    color: white;
+    padding: rem(10px);
+  }
+
+  .login-user-id {
+    position: absolute;
+    top: rem(40px);
+    right: 0;
+    font-size: rem(15px);
+    font-weight: normal;
+    text-decoration: underline;
   }
 }
 
