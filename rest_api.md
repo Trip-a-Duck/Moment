@@ -45,6 +45,10 @@
 
 - get('/post/:id')
 
+// 삭제 버튼을 누른 경우
+
+- delete('/post/:id')
+
 // 댓글을 단 경우
 
 - post('/post/comment/:id', {

@@ -5,6 +5,14 @@
 .container {
   padding-top: rem(30px);
   padding-bottom: rem(40px);
+
+  a {
+    text-decoration: none;
+  }
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 .no-display {
