@@ -2,6 +2,7 @@ import '../scss/pages/_main.scss';
 
 const $cardsContainer = document.querySelector('.cards-container');
 const $selectBox = document.querySelector('.select-country');
+const $loginUserId = document.querySelector('.login-user-id');
 
 let posts = [
   {
@@ -80,6 +81,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // if (JSON.parse(localStorage.getItem('userId')) === null)
   // moment로 로그인된 것을 가정
   localStorage.setItem('userId', 'moment');
+  console.log($loginUserId);
+  $loginUserId.innerText = 'login : moment';
   fetchPost();
 });
 
