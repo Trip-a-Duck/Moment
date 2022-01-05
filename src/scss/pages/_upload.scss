@@ -1,4 +1,6 @@
 @use '../utils' as *;
+@use '../base' as *;
+@use '../layout/container' as *;
 
 .container-post {
   text-align: center;
@@ -99,13 +101,38 @@
 }
 
 .post-content {
+  padding-top: rem(37%);
   margin-left: rem(40px);
+
+  .icon-control {
+    width: 100%;
+    text-align: right;
+    position: relative;
+
+    .select-country {
+      padding: rem(5px);
+      padding-left: rem(15px);
+      width: rem(250px);
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: transparent;
+      font-size: rem(20px);
+      z-index: 10;
+    }
+
+    .fa-chevron-down {
+      position: absolute;
+      top: rem(10px);
+      right: rem(10px);
+      pointer-events: none;
+    }
+  }
 }
 
 #post-desc {
   margin-top: rem(20px);
   width: rem(380px);
-  height: rem(502px);
+  height: rem(430px);
   padding: rem(20px) 0 0 rem(20px);
   font-size: rem(16px);
 

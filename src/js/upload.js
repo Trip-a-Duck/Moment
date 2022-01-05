@@ -7,6 +7,12 @@ const $uploadedImage = document.querySelector('.uploaded-image');
 const $inputFile = document.querySelector('.input-file');
 const $upload = document.querySelector('.upload-btn');
 
+$inputFile.onchange = () => {
+  const [image] = $inputFile.files;
+  if (!image) return;
+  $uploadedImage.style.backgroundImage = `url(${URL.createObjectURL(image)})`;
+};
+
 $upload.onclick = async e => {
   // 업로드된 파일
   const uploadedFile = $inputFile.files[0];
@@ -26,6 +32,6 @@ $upload.onclick = async e => {
   if (success) {
     console.log('UPLOAD SUCCESS!', file);
     // $uploadedImage.src = `/img/${file.originalname}`;
-    $uploadedImage.style.backgroundImage = `url('/img/${file.originalname}')`;
+    // $uploadedImage.style.backgroundImage = `url('/img/${file.originalname}')`;
   }
 };

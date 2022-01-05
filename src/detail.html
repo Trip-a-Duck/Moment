@@ -16,6 +16,7 @@
       <header class="header">
         <button class="go-back-btn">◀</button>
         <h1>MOMENT</h1>
+        <span class="current-user-id">userid</span>
       </header>
       <article class="detail">
         <header class="detail__header">
@@ -32,7 +33,7 @@
           <button class="detail__like-button">
             <i class="far fa-heart"></i>
           </button>
-          <button class="detail__like-button no-display">
+          <button class="detail__like-button hidden">
             <i class="fas fa-heart"></i>
           </button>
           <span class="uploader-id">uploader-id</span>
@@ -45,15 +46,17 @@
         </section>
         <setcion class="comment">
           <form class="user-comment">
-            <label for="user-conmmet-input" aria-label="댓글">지금사용자</label>
-            <input type="text" id="user-commet-input" placeholder="댓글을 입력해 주세요." />
+            <label class="hidden" for="user-conmmet-input" aria-label="댓글">댓글창</label>
+            <input type="text" id="user-comment-input" placeholder="댓글을 입력해 주세요." />
           </form>
           <button class="user-comment-btn">댓글 달기</button>
         </setcion>
-        <section class="detail-comments">
-          <span class="user-id">user-id</span>
-          <span class="detail-comment">댓글댓글댓글댓글</span>
-        </section>
+        <div class="detail-comments">
+          <section class="detail-comment-container">
+            <span class="user-id">user-id</span>
+            <span class="detail-comment">댓글댓글댓글댓글</span>
+          </section>
+        </div>
       </article>
     </section>
   </body>
