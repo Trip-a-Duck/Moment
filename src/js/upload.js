@@ -1,4 +1,5 @@
-import '../scss/index.scss';
+// import '../scss/index.scss';
+import '../scss/pages/_upload.scss';
 
 console.log('upload');
 
