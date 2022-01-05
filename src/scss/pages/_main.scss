@@ -1,4 +1,5 @@
 @use '../utils' as *;
+@use '../layout/container';
 
 .header {
   text-align: center;
@@ -46,7 +47,7 @@
   flex-wrap: wrap;
 
   justify-content: space-around;
-  background-image: url('../../img/main_bg.jpg');
+  background-image: url('../../img//main_bg.jpg');
 }
 
 .no-display {
