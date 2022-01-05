@@ -25,6 +25,7 @@ module.exports = {
   entry: {
     main: './src/js/index.js',
     upload: './src/js/upload.js',
+    detail: './src/js/detail.js',
   },
   output: {
     path: path.resolve(__dirname, `${ENVIRONMENT === DEVELOPMENT ? 'public' : 'dist'}`),

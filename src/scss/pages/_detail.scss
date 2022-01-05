@@ -1,0 +1,134 @@
+@use '../utils' as *;
+
+.container {
+  padding-top: rem(30px);
+}
+
+.detail {
+  width: 70%;
+  margin: auto;
+
+  &__title {
+    font-size: 40px;
+  }
+
+  &__img {
+    margin-top: rem(20px);
+    margin: auto;
+  }
+  &__img img {
+    width: rem(450px);
+    height: rem(350px);
+    background-color: red;
+    margin: auto;
+    display: block;
+  }
+
+  &__header {
+    margin: rem(30px) 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__like-button {
+    width: rem(30px);
+    height: rem(30px);
+    align-self: flex-start;
+  }
+
+  .func_buttons {
+    display: flex;
+    button {
+      margin-left: rem(20px);
+      height: rem(40px);
+      width: rem(70px);
+      border-radius: 10px;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .edit {
+      font-size: rem(20px);
+      background: rgb(255, 157, 157);
+    }
+
+    .delete {
+      background: rgb(255, 6, 6);
+      font-size: (20px);
+    }
+  }
+
+  .info {
+    width: rem(450px);
+    margin: 10px auto;
+    display: flex;
+  }
+}
+
+.detail-content {
+  border: 1px solid black;
+  padding: rem(20px);
+}
+
+.user-comment {
+  display: flex;
+
+  label {
+    height: rem(40px);
+    padding: rem(5px) rem(10px);
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid rgb(0, 68, 194);
+  }
+}
+
+.user-comment-btn {
+  height: rem(40px);
+  width: rem(80px);
+  border-radius: 10px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  background: rgb(39, 115, 255);
+}
+
+.detail-comments {
+  margin-top: rem(20px);
+  display: flex;
+  justify-content: space-between;
+  .user-id {
+    height: rem(40px);
+    width: rem(100px);
+    padding: rem(5px) rem(10px);
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid rgb(0, 68, 194);
+  }
+}
+
+.comment {
+  display: flex;
+  margin-top: rem(20px);
+  justify-content: space-between;
+}
+
+#user-commet-input {
+  margin-left: rem(10px);
+  width: rem(470px);
+  height: rem(40px);
+  padding: rem(5px) rem(10px);
+  border-radius: 10px;
+  font-size: 20px;
+  border: 3px solid rgb(0, 68, 194);
+}
+
+.detail-comment {
+  border: solid 1px black;
+  width: 80%;
+  display: inline-block;
+  font-size: 20px;
+  padding: rem(10px) rem(10px);
+}
