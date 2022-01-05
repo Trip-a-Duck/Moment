@@ -18,9 +18,14 @@
         <span class="current-user-id">userid</span>
         <div class="icon-control">
           <select class="select-country" placeholder="Select Country">
-            <option value="USA">USA</option>
-            <option value="South-Korea">South-Korea</option>
-            <option value="Canada">Canada</option>
+            <option value="korea" defaultValue>한국</option>
+            <option value="australia">호주</option>
+            <option value="canada">캐나다</option>
+            <option value="china">중국</option>
+            <option value="france">태국</option>
+            <option value="russia">러시아</option>
+            <option value="usa">미국</option>
+            <option value="israel">이스라엘</option>
           </select>
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -44,7 +49,25 @@
             </div>
           </div>
 
-          <div class="card">
+          <!--동적으로 받아올 요소-->
+          <div class="card" data-id="1">
+            <span class="card__user-id">user_id2</span>
+            <a class="move-to-description">
+              <img src="./img/france2.jpg" alt="card-image" />
+            </a>
+            <div class="card__info">
+              <button class="card__like-button no-display">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="card__like-button">
+                <i class="fas fa-heart"></i>
+              </button>
+              <span>자유의 여신상</span>
+            </div>
+          </div>
+          <!--동적으로 받아올 요소-->
+
+          <div class="card" data-id="1">
             <span class="card__user-id">user_id2</span>
             <a class="move-to-description">
               <img src="./img/france2.jpg" alt="card-image" />

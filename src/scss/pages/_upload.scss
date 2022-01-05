@@ -4,7 +4,7 @@
 
 .container-post {
   text-align: center;
-  padding-top: rem(50px);
+  padding-top: rem(50%);
   width: 60%;
   margin: 0 auto;
 }
@@ -86,12 +86,12 @@
 
 .uploaded-image {
   display: block;
-  width: rem(450px);
-  height: rem(450px);
+  width: rem(450%);
+  height: rem(450%);
   background-repeat: no-repeat;
   background-size: contain;
   border: 1px solid black;
-  margin: rem(20px) auto rem(10px);
+  margin: rem(20%) auto rem(10%);
 
   span {
     display: inline-block;
@@ -130,9 +130,9 @@
 }
 
 #post-desc {
-  margin-top: rem(20px);
-  width: rem(380px);
-  height: rem(430px);
+  margin-top: rem(14%);
+  width: rem(400%);
+  height: rem(450%);
   padding: rem(20px) 0 0 rem(20px);
   font-size: rem(16px);
 
