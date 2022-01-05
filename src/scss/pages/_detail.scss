@@ -1,7 +1,35 @@
 @use '../utils' as *;
+@use '../layout/container';
 
 .container {
   padding-top: rem(30px);
+}
+
+.header {
+  width: 100%;
+  height: rem(50px);
+  text-align: center;
+  position: relative;
+
+  .go-back-btn {
+    all: unset;
+    position: absolute;
+    width: rem(40px);
+    height: 100%;
+    left: 0;
+    top: rem(-10px);
+    font-size: rem(30px);
+    cursor: pointer;
+  }
+
+  h1 {
+    font-size: rem(40px);
+    font-weight: bold;
+  }
+}
+
+.uploader-id {
+  margin-left: rem(20px);
 }
 
 .detail {
@@ -34,10 +62,20 @@
     width: rem(30px);
     height: rem(30px);
     align-self: flex-start;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    font-size: rem(25px);
+    color: hotpink;
   }
 
   .func_buttons {
     display: flex;
+    align-items: center;
+
     button {
       margin-left: rem(20px);
       height: rem(40px);
@@ -84,9 +122,13 @@
   }
 }
 
+.no-display {
+  display: none;
+}
+
 .user-comment-btn {
-  height: rem(40px);
-  width: rem(80px);
+  height: rem(55px);
+  width: rem(100px);
   border-radius: 10px;
   font-size: 15px;
   text-align: center;
@@ -117,7 +159,7 @@
 
 #user-commet-input {
   margin-left: rem(10px);
-  width: rem(470px);
+  width: rem(530px);
   height: rem(40px);
   padding: rem(5px) rem(10px);
   border-radius: 10px;
