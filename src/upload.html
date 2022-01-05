@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous" />
   </head>
   <body>
     <section class="container-post">
       <header class="post-header">
         <button class="go-back-btn">◀</button>
         <h1>MOMENT</h1>
+        <span class="current-user-id">userid</span>
       </header>
       <article class="post">
         <div class="post-img">
@@ -25,6 +31,20 @@
           </div>
         </div>
         <div class="post-content">
+          <div class="icon-control">
+            <select class="select-country" placeholder="Select Country">
+              <option value="" defaultValue>국가 선택</option>
+              <option value="Canada">Australia</option>
+              <option value="Canada">Canada</option>
+              <option value="Canada">China</option>
+              <option value="South-Korea">South-Korea</option>
+              <option value="South-Korea">Tailandia</option>
+              <option value="South-Korea">Russia</option>
+              <option value="USA">USA</option>
+              <option value="USA">Israel</option>
+            </select>
+            <i class="fas fa-chevron-down"></i>
+          </div>
           <form class="post-desc-form">
             <label for="post-desc" aria-label="포스트 내용"></label>
             <textarea id="post-desc" cols="30" rows="10" placeholder="포스트 내용을 작성해주세요."></textarea>

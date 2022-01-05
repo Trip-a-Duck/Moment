@@ -1,8 +1,13 @@
 @use '../utils' as *;
 @use '../layout/container';
+@use '../base' as *;
 
 .container {
   padding-top: rem(30px);
+}
+
+button {
+  color: white;
 }
 
 .header {
@@ -12,8 +17,8 @@
   position: relative;
 
   .go-back-btn {
-    all: unset;
     position: absolute;
+    color: black;
     width: rem(40px);
     height: 100%;
     left: 0;
@@ -88,11 +93,11 @@
 
     .edit {
       font-size: rem(20px);
-      background: rgb(255, 157, 157);
+      background: rgb(40, 140, 207);
     }
 
     .delete {
-      background: rgb(255, 6, 6);
+      background: rgb(223, 47, 47);
       font-size: (20px);
     }
   }
@@ -101,6 +106,7 @@
     width: rem(450px);
     margin: 10px auto;
     display: flex;
+    align-items: center;
   }
 }
 
@@ -110,25 +116,12 @@
 }
 
 .user-comment {
-  display: flex;
-
-  label {
-    height: rem(40px);
-    padding: rem(5px) rem(10px);
-    border-radius: 10px;
-    font-size: 20px;
-    text-align: center;
-    border: 3px solid rgb(0, 68, 194);
-  }
-}
-
-.no-display {
-  display: none;
+  width: 100%;
 }
 
 .user-comment-btn {
-  height: rem(55px);
   width: rem(100px);
+  margin-left: rem(10px);
   border-radius: 10px;
   font-size: 15px;
   text-align: center;
@@ -136,41 +129,46 @@
   background: rgb(39, 115, 255);
 }
 
-.detail-comments {
+.detail-comment-container {
   margin-top: rem(20px);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding-left: rem(10px);
+
   .user-id {
-    height: rem(40px);
-    width: rem(100px);
-    padding: rem(5px) rem(10px);
-    border-radius: 10px;
     font-size: 20px;
     text-align: center;
-    border: 3px solid rgb(0, 68, 194);
   }
 }
 
 .comment {
+  width: 100%;
+  margin: rem(30px) 0;
   display: flex;
-  margin-top: rem(20px);
   justify-content: space-between;
 }
 
-#user-commet-input {
-  margin-left: rem(10px);
-  width: rem(530px);
+#user-comment-input {
+  width: 100%;
   height: rem(40px);
   padding: rem(5px) rem(10px);
-  border-radius: 10px;
   font-size: 20px;
-  border: 3px solid rgb(0, 68, 194);
+  border: none;
+  border-bottom: 2px solid black;
+
+  &:focus {
+    outline: none;
+    border: 2px solid rgb(0, 68, 194);
+  }
 }
 
 .detail-comment {
-  border: solid 1px black;
   width: 80%;
   display: inline-block;
   font-size: 20px;
   padding: rem(10px) rem(10px);
+  border-left: 1px solid black;
 }
