@@ -4,10 +4,7 @@
 
 .container {
   padding-top: rem(30px);
-}
-
-button {
-  color: white;
+  padding-bottom: rem(40px);
 }
 
 .header {
@@ -80,12 +77,10 @@ button {
   .func_buttons {
     display: flex;
     align-items: center;
+    text-decoration: underline;
 
     button {
       margin-left: rem(20px);
-      height: rem(40px);
-      width: rem(70px);
-      border-radius: 10px;
       font-size: 15px;
       text-align: center;
       cursor: pointer;
@@ -93,11 +88,9 @@ button {
 
     .edit {
       font-size: rem(20px);
-      background: rgb(40, 140, 207);
     }
 
     .delete {
-      background: rgb(223, 47, 47);
       font-size: (20px);
     }
   }
@@ -120,6 +113,7 @@ button {
 }
 
 .user-comment-btn {
+  color: white;
   width: rem(100px);
   margin-left: rem(10px);
   border-radius: 10px;
