@@ -22,7 +22,7 @@ const render = post => {
           <img src="${post.image}" alt="detail-image" />
         </section>
         <section class="info">
-          <button class="detail__like-button">
+          <button class="detail__like-button ${post.liked ? 'hidden' : ''}">
             <i class="far fa-heart"></i>
           </button>
           <button class="detail__like-button ${post.liked ? '' : 'hidden'}">
@@ -36,7 +36,7 @@ const render = post => {
         <setcion class="comment">
           <form class="user-comment">
             <label class="hidden" for="user-conmmet-input" aria-label="댓글">댓글창</label>
-            <input type="text" id="user-comment-input" placeholder="댓글을 입력해 주세요." />
+            <input type="text" id="user-comment-input" autocomplete="off" placeholder="댓글을 입력해 주세요." />
           </form>
           <button class="user-comment-btn">댓글 달기</button>
         </setcion>
@@ -76,16 +76,20 @@ const fetchPost = async () => {
 
 const basicRequests = async e => {
   if (
-    !e.target.classList.contains('delete') ||
-    !(e.target.tagName === 'I') ||
-    !e.target.classList.contains('user-comment-btn')
+    !e.target.classList.contains('delete') &&
+    !e.target.classList.contains('user-comment-btn') &&
+    !(e.target.tagName === 'I')
   )
     return;
   if (e.target.classList.contains('delete')) {
     try {
-      const response = await request.deletePost(postId);
-      if (response.status === 200) {
-        console.log('deleted');
+      var result = confirm('정말 삭제하시겠습니까?');
+      if (result) {
+        const response = await request.deletePost(postId);
+        if (response.status === 200) {
+          console.log('deleted');
+          location.replace('index.html');
+        }
       }
     } catch (e) {
       console.error(e);
@@ -104,8 +108,9 @@ const basicRequests = async e => {
       const response = await request.postToggleLiked(postId);
       if (response.status === 200) {
         post.liked = !post.liked;
-        const $liked = document.querySelector('.detail__like-button');
-        $liked.toggleClass('hidden');
+        const $likedBtns = document.querySelectorAll('.detail__like-button');
+        // $likedBtns.forEach(likedBtn => likedBtn.toggle('hidden'));
+        $likedBtns.forEach(likedBtn => likedBtn.classList.toggle('hidden'));
       }
     } catch (e) {
       console.error(e);
@@ -118,7 +123,6 @@ const enterCommentRequests = async e => {
   if (e.target.classList.contains('user-comment')) {
     e.preventDefault();
     try {
-      console.log('dd');
       const $comment = document.querySelector('#user-comment-input');
       const { data } = await request.postComment(postId, currentUser, $comment.value);
       setComment(data);
