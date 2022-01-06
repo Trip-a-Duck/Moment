@@ -18,7 +18,7 @@ module.exports = [
   {
     id: 2,
     userId: 'someone2',
-    nation: 'USA',
+    nation: 'usa',
     title: '경복궁',
     comment: [
       {
