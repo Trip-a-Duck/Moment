@@ -5,10 +5,14 @@
 .container {
   padding-top: rem(30px);
   padding-bottom: rem(40px);
-}
 
-.no-display {
-  display: none;
+  a {
+    text-decoration: none;
+  }
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 .header {
@@ -53,7 +57,6 @@
   &__img img {
     width: rem(450px);
     height: rem(350px);
-    background-color: red;
     margin: auto;
     display: block;
   }
@@ -68,7 +71,8 @@
     width: rem(30px);
     height: rem(30px);
     align-self: flex-start;
-
+    z-index: 10;
+    cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
