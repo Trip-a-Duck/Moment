@@ -55,6 +55,7 @@ const fetchPost = async () => {
 window.addEventListener('DOMContentLoaded', () => {
   // moment로 로그인된 것을 가정
   localStorage.setItem('userId', 'admin');
+  sessionStorage.setItem('nation', selectedNation);
   $loginUserId.innerText = 'admin';
   fetchPost();
 });
