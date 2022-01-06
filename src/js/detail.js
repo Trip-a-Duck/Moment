@@ -1,7 +1,3 @@
-import { doc } from 'prettier';
-import '../scss/pages/_detail.scss';
-
-console.log('Test');
 import '../scss/pages/_detail.scss';
 import request from './requests.js';
 
@@ -11,14 +7,14 @@ const currentUser = localStorage.getItem('userId');
 const postId = sessionStorage.getItem('postId');
 
 const render = post => {
-  const $article = document.createElement('artice');
+  const $article = document.createElement('article');
   $article.className = 'detail';
 
   const detailHtml = `
         <header class="detail__header">
           <span class="detail__title">${post.title}</span>
           <div class="func_buttons">
-            <a href="./upload.html" class="edit ${currentUser === post.userId ? '' : hidden}">수정</a>
+            <a href="./upload.html" class="edit ${currentUser === post.userId ? '' : 'hidden'}">수정</a>
             <button class="delete ${currentUser === post.userId ? '' : 'hidden'}">삭제</button>
           </div>
         </header>
@@ -45,31 +41,27 @@ const render = post => {
           <button class="user-comment-btn">댓글 달기</button>
         </setcion>
         <div class="detail-comments">
-        </div>`;
-
-  const $commentDiv = document.querySelector('.detail-comments');
-  $commentDiv.appendChild(
-    comments
-      .map(comment => {
-        `<section class="detail-comment-container">
+        ${post.comment
+          .map(
+            comment =>
+              `<section class="detail-comment-container">
           <span class="user-id">${comment.userId}</span>
           <span an class="detail-comment">${comment.description}</span>
-        </section>`;
-      })
-      .join('')
-  );
+        </section>`
+          )
+          .join('')}
+        </div>`;
 
-  if (currentUser === post.userId) {
-  }
-  $article.innerHTML += detailHtml;
+  $article.innerHTML = detailHtml;
+  $container.appendChild($article);
 };
 
-const setCommnet = comment => {
+const setComment = comment => {
   const $commentDiv = document.querySelector('.detail-comments');
-  $commentDiv.appendChild(`<section class="detail-comment-container">
+  $commentDiv.innerHTML += `<section class="detail-comment-container">
           <span class="user-id">${comment.userId}</span>
           <span class="detail-comment">${comment.description}</span>
-        </section>`);
+        </section>`;
 };
 
 const fetchPost = async () => {
@@ -82,8 +74,13 @@ const fetchPost = async () => {
   }
 };
 
-const addEvent = async e => {
-  console.log(e.target);
+const basicRequests = async e => {
+  if (
+    !e.target.classList.contains('delete') ||
+    !(e.target.tagName === 'I') ||
+    !e.target.classList.contains('user-comment-btn')
+  )
+    return;
   if (e.target.classList.contains('delete')) {
     try {
       const response = await request.deletePost(postId);
@@ -95,15 +92,16 @@ const addEvent = async e => {
     }
   } else if (e.target.classList.contains('user-comment-btn')) {
     try {
-      const $comment = document.querySelector('#user-comment-input').value;
-      const { data } = await request.postComment(postId, currentUser, $comment);
-      setCommnet(data);
+      const $comment = document.querySelector('#user-comment-input');
+      const { data } = await request.postComment(postId, currentUser, $comment.value);
+      setComment(data);
+      $comment.value = '';
     } catch (e) {
       console.error(e);
     }
   } else if (e.target.tagName === 'I') {
     try {
-      const response = await request.likePost(postId);
+      const response = await request.postToggleLiked(postId);
       if (response.status === 200) {
         post.liked = !post.liked;
         const $liked = document.querySelector('.detail__like-button');
@@ -115,6 +113,23 @@ const addEvent = async e => {
   }
 };
 
+const enterCommentRequests = async e => {
+  if (!e.target.classList.contains('user-comment')) return;
+  if (e.target.classList.contains('user-comment')) {
+    e.preventDefault();
+    try {
+      console.log('dd');
+      const $comment = document.querySelector('#user-comment-input');
+      const { data } = await request.postComment(postId, currentUser, $comment.value);
+      setComment(data);
+      $comment.value = '';
+    } catch (e) {
+      console.error(e);
+    }
+  }
+};
+
 window.addEventListener('DOMContentLoaded', fetchPost);
 
-$container.addEventListener('click', addEvent);
+$container.addEventListener('click', basicRequests);
+$container.addEventListener('submit', enterCommentRequests);
