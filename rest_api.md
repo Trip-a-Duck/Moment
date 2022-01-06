@@ -12,12 +12,14 @@
 
 // moment 버튼을 누른 경우
 
-- post('/post/:id',
+<!-- - post('/post/:id', -->
+
+- post('/post',
   {
   userId: "someone",
   nation: 'korea',
   title: '경복궁',
-  liked: false,
+  <!-- liked: false, -->
   image: 'url',
   description: "내가 경복궁에 가서.})
 
@@ -27,7 +29,8 @@
 
 // detail.html에서 수정 버튼을 눌렀을 때 원본 포스팅 contents 요청
 
-- get('/post/edit/:id')
+<!-- detail page와 중복? -->
+<!-- - get('/post/edit/:id') -->
 
 // 수정 요청
 
@@ -45,10 +48,6 @@
 
 - get('/post/:id')
 
-// 삭제 버튼을 누른 경우
-
-- delete('/post/:id')
-
 // 댓글을 단 경우
 
 - post('/post/comment/:id', {
@@ -58,4 +57,8 @@
 
 // 하트 버튼을 클릭한 경우
 
-- post('/post/liked/:id')
+- patch('/post/liked/:id')
+
+// 포스트 삭제
+
+- delete('/post/:id')

@@ -1,33 +1,38 @@
+import { doc } from 'prettier';
 import '../scss/pages/_detail.scss';
 
 console.log('Test');
 import '../scss/pages/_detail.scss';
 import request from './requests.js';
 
+let post = {};
 const $container = document.querySelector('.container');
 const currentUser = localStorage.getItem('userId');
 const postId = sessionStorage.getItem('postId');
 
 const render = post => {
-  $container.innerHTML += `<article class="detail">
+  const $article = document.createElement('artice');
+  $article.className = 'detail';
+
+  const detailHtml = `
         <header class="detail__header">
           <span class="detail__title">${post.title}</span>
           <div class="func_buttons">
-            <a href="./upload.html" class="edit">수정</a>
-            <button class="delete">삭제</button>
+            <a href="./upload.html" class="edit ${currentUser === post.userId ? '' : hidden}">수정</a>
+            <button class="delete ${currentUser === post.userId ? '' : 'hidden'}">삭제</button>
           </div>
         </header>
         <section class="detail__img">
-          <img src="ttt" alt="detail-image" />
+          <img src="${post.image}" alt="detail-image" />
         </section>
         <section class="info">
           <button class="detail__like-button">
             <i class="far fa-heart"></i>
           </button>
-          <button class="detail__like-button hidden">
+          <button class="detail__like-button ${post.liked ? '' : 'hidden'}">
             <i class="fas fa-heart"></i>
           </button>
-          <span class="uploader-id">uploader-id</span>
+          <span class="uploader-id">${post.userId}</span>
         </section>
         <section class="detail-content">
           ${post.description}
@@ -39,38 +44,74 @@ const render = post => {
           </form>
           <button class="user-comment-btn">댓글 달기</button>
         </setcion>
+        <div class="detail-comments">
+        </div>`;
 
-      </article>`;
-  //여기는 배열이므로 돌면서 추가.
-  <div class="detail-comments">
-    <section class="detail-comment-container">
-      <span class="user-id">${post.comment.userId}</span>
-      <span class="detail-comment">${post.comment.description}</span>
-    </section>
-  </div>;
+  const $commentDiv = document.querySelector('.detail-comments');
+  $commentDiv.appendChild(
+    comments
+      .map(comment => {
+        `<section class="detail-comment-container">
+          <span class="user-id">${comment.userId}</span>
+          <span an class="detail-comment">${comment.description}</span>
+        </section>`;
+      })
+      .join('')
+  );
+
+  if (currentUser === post.userId) {
+  }
+  $article.innerHTML += detailHtml;
 };
 
-const fetchPost = () => {
+const setCommnet = comment => {
+  const $commentDiv = document.querySelector('.detail-comments');
+  $commentDiv.appendChild(`<section class="detail-comment-container">
+          <span class="user-id">${comment.userId}</span>
+          <span class="detail-comment">${comment.description}</span>
+        </section>`);
+};
+
+const fetchPost = async () => {
   try {
-    // const post = await request.getPost(postId);
-    render();
-    // render(post);
-    // $button = document.querySelector('.delete');
-    // $button.addEventListener('click', request.deletePost(postId));
-    // document
-    //   .querySelector('.user-comment-btn')
-    //   .addEventListener('click', request.postComment(postId, currentUser, $comment));
-  } catch {}
+    const { data } = await request.getPost(postId);
+    post = data;
+    render(data);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-const addEvent = e => {
+const addEvent = async e => {
+  console.log(e.target);
   if (e.target.classList.contains('delete')) {
-    request.deletePost(postId);
+    try {
+      const response = await request.deletePost(postId);
+      if (response.status === 200) {
+        console.log('deleted');
+      }
+    } catch (e) {
+      console.error(e);
+    }
   } else if (e.target.classList.contains('user-comment-btn')) {
-    const $comment = document.querySelector('#user-comment-input').value;
-    request.postComment(postId, currentUser, $comment);
+    try {
+      const $comment = document.querySelector('#user-comment-input').value;
+      const { data } = await request.postComment(postId, currentUser, $comment);
+      setCommnet(data);
+    } catch (e) {
+      console.error(e);
+    }
   } else if (e.target.tagName === 'I') {
-    request.likePost(postId);
+    try {
+      const response = await request.likePost(postId);
+      if (response.status === 200) {
+        post.liked = !post.liked;
+        const $liked = document.querySelector('.detail__like-button');
+        $liked.toggleClass('hidden');
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }
 };
 
