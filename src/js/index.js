@@ -55,12 +55,15 @@ const fetchPost = async () => {
 window.addEventListener('DOMContentLoaded', () => {
   // moment로 로그인된 것을 가정
   localStorage.setItem('userId', 'admin');
+  sessionStorage.setItem('nation', selectedNation);
   $loginUserId.innerText = 'admin';
   fetchPost();
 });
 
 $selectBox.addEventListener('change', e => {
   selectedNation = e.target.value;
+  console.log(selectedNation);
+  sessionStorage.setItem('nation', selectedNation);
   fetchPost();
 });
 
