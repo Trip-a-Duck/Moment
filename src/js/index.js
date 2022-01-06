@@ -55,7 +55,10 @@ const fetchPost = async () => {
 window.addEventListener('DOMContentLoaded', () => {
   // moment로 로그인된 것을 가정
   localStorage.setItem('userId', 'admin');
-  sessionStorage.setItem('nation', selectedNation);
+  selectedNation = sessionStorage.getItem('nation')
+    ? sessionStorage.getItem('nation')
+    : sessionStorage.setItem('nation', selectedNation);
+  $selectBox.value = selectedNation;
   $loginUserId.innerText = 'admin';
   fetchPost();
 });
@@ -65,6 +68,11 @@ $selectBox.addEventListener('change', e => {
   console.log(selectedNation);
   sessionStorage.setItem('nation', selectedNation);
   fetchPost();
+});
+
+$cardsContainer.addEventListener('click', async e => {
+  const cardPostId = e.target.closest('.card').dataset.id;
+  sessionStorage.setItem('postId', cardPostId);
 });
 
 $cardsContainer.addEventListener('click', async e => {
@@ -80,10 +88,8 @@ $cardsContainer.addEventListener('click', async e => {
     e.target.parentNode.classList.toggle('hidden');
     e.target.parentNode.nextElementSibling.classList.toggle('hidden');
   }
-
   const cardPostId = e.target.closest('.card').dataset.id;
   sessionStorage.setItem('postId', cardPostId);
-
   try {
     const response = await requests.postToggleLiked(cardPostId);
     if (response.status === 200) {
