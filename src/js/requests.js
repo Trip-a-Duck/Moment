@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 export default {
+  async getPostsByNation(nation) {
+    return await axios.get(`/posts?nation=${nation}`);
+  },
   async getPost(id) {
     return await axios.get(`/post/${id}`);
   },
