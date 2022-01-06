@@ -62,7 +62,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // if (JSON.parse(localStorage.getItem('userId')) === null)
   // moment로 로그인된 것을 가정
   localStorage.setItem('userId', 'moment');
-  console.log($loginUserId);
   $loginUserId.innerText = 'login : moment';
   fetchPost();
 });
@@ -73,15 +72,14 @@ $selectBox.addEventListener('change', e => {
 });
 
 $cardsContainer.addEventListener('click', async e => {
-  const cardPostId = e.target.parentNode.parentNode.dataset.id;
+  const cardPostId = e.target.closest('.card').dataset.id;
   sessionStorage.setItem('postId', cardPostId);
-  console.log(e.target.parentNode);
   try {
     const response = await requests.postToggleLikedButton(cardPostId);
     if (response.status === 200) {
       setPosts(
         posts.map(post =>
-          post.id === cardPostId
+          post.id === +cardPostId
             ? {
                 ...post,
                 liked: !post.liked,

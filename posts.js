@@ -12,7 +12,7 @@ module.exports = [
       },
     ],
     liked: false,
-    image: './public/img/france1.jpg',
+    image: './img/france1.jpg',
     description: '내가 경복궁에 가서...',
   },
   {
@@ -28,7 +28,7 @@ module.exports = [
       },
     ],
     liked: false,
-    image: './public/img/france2.jpg',
+    image: './img/france2.jpg',
     description: '내가 경복궁에 가서...',
   },
   {
@@ -44,7 +44,7 @@ module.exports = [
       },
     ],
     liked: false,
-    image: './public/img/france1.jpg',
+    image: './img/france1.jpg',
     description: '내가 경복궁에 가서...',
   },
 ];

@@ -5,7 +5,7 @@ export default {
     return await axios.get(`/posts?nation=${nation}`);
   },
   async postToggleLikedButton(id) {
-    return await axios.post(`/post/liked/${id}`);
+    return await axios.patch(`/post/liked/${id}`);
   },
   async getPostById(id) {
     return await axios.get(`/post/${id}`);
