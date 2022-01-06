@@ -101,21 +101,20 @@ app.post('/post/comment/:id', (req, res) => {
   const postById = getPostById(res, id);
   if (!postById) return;
 
+  const newComment = {
+    id: uniqid(),
+    ...req.body,
+  };
+
   posts = posts.map(post =>
     post.id === +id
       ? {
           ...post,
-          comment: [
-            ...post.comment,
-            {
-              id: uniqid(),
-              ...req.body,
-            },
-          ],
+          comment: [...post.comment, newComment],
         }
       : post
   );
-  res.send(postById.comment[postById.comment.length - 1]);
+  res.send(newComment);
 });
 
 app.delete('/post/:id', (req, res) => {
