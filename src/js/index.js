@@ -62,6 +62,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 $selectBox.addEventListener('change', e => {
   selectedNation = e.target.value;
+  console.log(selectedNation);
+  sessionStorage.setItem('nation', selectedNation);
   fetchPost();
 });
 
