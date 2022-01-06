@@ -1,43 +1,20 @@
 import '../scss/pages/_main.scss';
+import requests from './requests';
+
+import france1 from '../img/france1.jpg';
+import france2 from '../img/france2.jpg';
+// import korea1 from '../img/korea1.jpg';
+// import korea2 from '../img/korea2.jpg';
+// import korea3 from '../img/korea3.jpg';
+// import usa1 from '../img/usa1.jpg';
+// import usa2 from '../img/usa2.jpg';
 
 const $cardsContainer = document.querySelector('.cards-container');
 const $selectBox = document.querySelector('.select-country');
 const $loginUserId = document.querySelector('.login-user-id');
+const $cardInfo = document.querySelector('.card__like-button');
 
-let posts = [
-  {
-    id: 1,
-    userId: 'someone',
-    nation: 'korea',
-    title: '경복궁',
-    comment: [
-      {
-        id: 2,
-        userId: 'someone',
-        description: '어쩌라고',
-      },
-    ],
-    liked: false,
-    image: '../src/img/france1.jpg',
-    description: '내가 경복궁에 가서...',
-  },
-  {
-    id: 2,
-    userId: 'someone2',
-    nation: 'USA',
-    title: '경복궁',
-    comment: [
-      {
-        id: 3,
-        userId: 'someone',
-        description: '어쩌라고',
-      },
-    ],
-    liked: true,
-    image: '../src/img/france2.jpg',
-    description: '내가 경복궁에 가서...',
-  },
-];
+let posts = [];
 
 let selectedNation = 'korea';
 
@@ -53,10 +30,10 @@ const render = () => {
 			<img src="${image}" alt="card-image" />
 		</a>
 		<div class="card__info">
-			<button class="card__like-button ${liked === false ? '' : 'no-display'}">
+			<button class="card__like-button ${liked === false ? '' : 'hidden'}">
 				<i class="far fa-heart"></i>
 			</button>
-			<button class="card__like-button ${liked === true ? '' : 'no-display'}">
+			<button class="card__like-button ${liked === true ? '' : 'hidden'}">
 				<i class="fas fa-heart"></i>
 			</button>
 			<span>${title}</span>
@@ -71,9 +48,13 @@ const setPosts = _posts => {
   render();
 };
 
-const fetchPost = () => {
-  // axios.get('/posts').then(setPosts).catch(console.error);
-  setPosts(posts);
+const fetchPost = async () => {
+  try {
+    const { data } = await requests.getPostsByNation(selectedNation);
+    setPosts(data);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 //  initial rendering
@@ -91,7 +72,25 @@ $selectBox.addEventListener('change', e => {
   fetchPost();
 });
 
-$cardsContainer.addEventListener('click', e => {
+$cardsContainer.addEventListener('click', async e => {
   const cardPostId = e.target.parentNode.parentNode.dataset.id;
   sessionStorage.setItem('postId', cardPostId);
+  console.log(e.target.parentNode);
+  try {
+    const response = await requests.postToggleLikedButton(cardPostId);
+    if (response.status === 200) {
+      setPosts(
+        posts.map(post =>
+          post.id === cardPostId
+            ? {
+                ...post,
+                liked: !post.liked,
+              }
+            : post
+        )
+      );
+    }
+  } catch (error) {
+    console.error(error);
+  }
 });
