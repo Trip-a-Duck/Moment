@@ -45,7 +45,7 @@
 
 - upload page
 
-![](story_board/upload.jpg)
+![](Plan/story_board/upload.jpg)
 
 - detail page
 - mine
