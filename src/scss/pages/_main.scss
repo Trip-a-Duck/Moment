@@ -16,10 +16,6 @@
     font-size: rem(30px);
   }
   .posting-btn {
-    position: absolute;
-    // left: rem(80px);
-    left: 0;
-    top: rem(30px);
     font-size: rem(15px);
     text-decoration: none;
     border: 1px solid lightblue;
@@ -29,13 +25,14 @@
     padding: rem(10px);
   }
 
+  .align-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .login-user-id {
-    position: absolute;
-    top: rem(40px);
-    right: 0;
     font-size: rem(15px);
-    font-weight: normal;
-    text-decoration: underline;
   }
 }
 
