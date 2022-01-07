@@ -1,17 +1,35 @@
+@use '../base/' as *;
 @use '../utils' as *;
+@use '../layout/container' as *;
 
 .header {
+  position: relative;
   text-align: center;
-  font-family: 'Open Sans';
   font-weight: 800;
-  padding: 2rem;
-  margin-bottom: rem(10px);
-  font-size: 4rem;
+  margin-top: rem(50px);
+  margin-bottom: rem(30px);
+
   h1 {
     padding: rem(10px);
+    font-size: rem(60px);
   }
   i {
     font-size: rem(30px);
+  }
+  .posting-btn {
+    font-size: rem(15px);
+    text-decoration: none;
+    border: 1px solid lightblue;
+    border-radius: rem(5px);
+    background-color: rgb(15, 73, 92);
+    color: white;
+    padding: rem(10px);
+  }
+
+  .align-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -23,6 +41,7 @@
   background-color: transparent;
   font-size: rem(25px);
   z-index: 10;
+  cursor: pointer;
 }
 
 // icon control
@@ -40,12 +59,10 @@
 }
 
 // items
-.posts-container {
+.cards-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-  justify-content: space-around;
   background-image: url('../../img/main_bg.jpg');
 }
 
@@ -54,19 +71,22 @@
 }
 
 // item
-.post {
+.card {
   display: flex;
   flex-direction: column;
+  flex: 0 0 28%;
 
-  margin: 0 rem(15px);
-  margin-bottom: rem(90px);
+  margin: 0 0 rem(90px) rem(40px);
+
   position: relative;
   font-weight: 700;
-  font-size: rem(20px);
+  font-size: rem(30px);
 
   img {
-    width: rem(230px);
+    width: 100%;
     height: rem(230px);
+    border-radius: rem(10px);
+    cursor: pointer;
   }
   img:hover {
     border: 4px solid lightblue;
@@ -93,5 +113,6 @@
     background-color: transparent;
     font-size: rem(25px);
     color: hotpink;
+    cursor: pointer;
   }
 }
