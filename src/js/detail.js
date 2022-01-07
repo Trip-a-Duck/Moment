@@ -4,7 +4,7 @@ import request from './requests.js';
 let post = {};
 const $container = document.querySelector('.container');
 const currentUser = localStorage.getItem('userId');
-const postId = sessionStorage.getItem('postId');
+let postId = null;
 
 const render = post => {
   const $article = document.createElement('article');
@@ -41,7 +41,7 @@ const render = post => {
           <button class="user-comment-btn">댓글 달기</button>
         </setcion>
         <div class="detail-comments">
-        ${post.comment
+        ${post.comments
           .map(
             comment =>
               `<section class="detail-comment-container">
@@ -65,6 +65,7 @@ const setComment = comment => {
 };
 
 const fetchPost = async () => {
+  postId = sessionStorage.getItem('postId');
   try {
     const { data } = await request.getPost(postId);
     post = data;
@@ -109,7 +110,6 @@ const basicRequests = async e => {
       if (response.status === 200) {
         post.liked = !post.liked;
         const $likedBtns = document.querySelectorAll('.detail__like-button');
-        // $likedBtns.forEach(likedBtn => likedBtn.toggle('hidden'));
         $likedBtns.forEach(likedBtn => likedBtn.classList.toggle('hidden'));
       }
     } catch (e) {

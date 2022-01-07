@@ -42,14 +42,11 @@ const uploadImage = async () => {
 };
 
 const getOriginPost = async () => {
-  console.log(document.referrer);
   if (document.referrer === DETAIL_PAGE) {
     state.postId = sessionStorage.getItem('postId');
     state.isEditing = true;
-    console.log(sessionStorage.getItem('postId'), state.postId);
     try {
       const { data } = await requests.getPost(state.postId);
-      console.log(data);
       state.post = data;
       $postTitle.value = data.title;
 
@@ -86,20 +83,16 @@ const fetchPost = async e => {
       if ($uploadedImage.style.backgroundImage !== `url(${post.image})`) {
         uploadedImage = await uploadImage();
       }
-
-      const response = await requests.patchPost(postId, getPostPayload(uploadedImage));
-      if (response.status === 200) {
-        alert('포스트가 수정되었습니다.');
-        location.href = DETAIL_PAGE;
-      }
+      await requests.patchPost(postId, getPostPayload(uploadedImage));
     } else {
       const uploadedImage = await uploadImage();
-      const response = await requests.createPost(getPostPayload(uploadedImage));
-      if (response.status === 201) {
-        alert('포스트가 등록되었습니다.');
-        location.href = DETAIL_PAGE;
-      }
+      const { data: id } = await requests.createPost(getPostPayload(uploadedImage));
+      state.post.id = id;
     }
+    console.log(post.id);
+    sessionStorage.setItem('postId', post.id);
+    alert(`포스트가 ${isEditing ? '수정' : '등록'}되었습니다.`);
+    location.href = DETAIL_PAGE;
   } catch (error) {
     console.error(error);
   }

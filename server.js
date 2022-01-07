@@ -40,7 +40,7 @@ app.get('/posts', (req, res) => {
 app.patch('/post/liked/:id', (req, res) => {
   const { id } = req.params;
   const postById = getPostById(id);
-  if (!postById) {
+  if (!postById?.id) {
     res.status(404).send('해당 post가 존재하지 않습니다.');
     return;
   }
@@ -56,23 +56,23 @@ app.post('/upload', upload.single('img'), (req, res) => {
 });
 
 app.post('/post', (req, res) => {
-  posts = [
-    ...posts,
-    {
-      ...req.body,
-      id: uniqid(),
-      userId: uniqid(),
-      liked: false,
-      comments: [],
-    },
-  ];
-  res.sendStatus(201);
+  const newPost = {
+    ...req.body,
+    id: uniqid(),
+    userId: uniqid(),
+    liked: false,
+    comments: [],
+  };
+
+  posts = [...posts, newPost];
+  console.log(newPost.id);
+  res.status(201).send(newPost.id);
 });
 
 app.patch('/post/:id', (req, res) => {
   const { id } = req.params;
   const postById = getPostById(id);
-  if (!postById) {
+  if (!postById?.id) {
     res.status(404).send('해당 post가 존재하지 않습니다.');
     return;
   }
@@ -85,15 +85,15 @@ app.patch('/post/:id', (req, res) => {
         }
       : post
   );
-  res.send();
+  res.send(id);
 });
 
 // detailPage
 app.get('/post/:id', (req, res) => {
   const { id } = req.params;
   const postById = getPostById(id);
-  console.log(id, postById, posts);
-  if (!postById) {
+  console.log(id, postById);
+  if (!postById.id) {
     res.status(404).send('해당 post가 존재하지 않습니다.');
     return;
   }
@@ -103,15 +103,10 @@ app.get('/post/:id', (req, res) => {
 app.post('/post/comment/:id', (req, res) => {
   const { id } = req.params;
   const postById = getPostById(id);
-  if (!postById) {
+  if (!postById?.id) {
     res.status(404).send('해당 post가 존재하지 않습니다.');
     return;
   }
-
-  const newComment = {
-    id: uniqid(),
-    ...req.body,
-  };
 
   const newComment = {
     id: uniqid(),
@@ -132,7 +127,7 @@ app.post('/post/comment/:id', (req, res) => {
 app.delete('/post/:id', (req, res) => {
   const { id } = req.params;
   const postById = getPostById(id);
-  if (!postById) {
+  if (!postById?.id) {
     res.status(404).send('해당 post가 존재하지 않습니다.');
     return;
   }

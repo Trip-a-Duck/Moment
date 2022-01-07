@@ -1,12 +1,12 @@
 const uniqid = require('uniqid');
 
-module.exports = [
+const posts = [
   {
     id: uniqid(),
     userId: 'admin',
     nation: 'korea',
     title: '전주',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: '천재효식',
@@ -22,7 +22,7 @@ module.exports = [
     userId: '진영쏭',
     nation: 'korea',
     title: '석가모니',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'moment',
@@ -38,7 +38,7 @@ module.exports = [
     userId: '천재효식',
     nation: 'korea',
     title: '동궁과 월지',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: '천재효식',
@@ -54,7 +54,7 @@ module.exports = [
     userId: 'moment',
     nation: 'korea',
     title: '수원 화성',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -70,7 +70,7 @@ module.exports = [
     userId: 'moment',
     nation: 'korea',
     title: '수원 화성',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'someone',
@@ -86,7 +86,7 @@ module.exports = [
     userId: '진영쏭',
     nation: 'france',
     title: '에펠탑',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -102,7 +102,7 @@ module.exports = [
     userId: '천재효식',
     nation: 'france',
     title: '르브르 박물관',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -118,7 +118,7 @@ module.exports = [
     userId: '천재효식',
     nation: 'france',
     title: '브루고뉴',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -134,7 +134,7 @@ module.exports = [
     userId: '천재효식',
     nation: 'korea',
     title: '가로수 길',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -150,7 +150,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'france',
     title: '프로방스',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -166,7 +166,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'france',
     title: '쁘띠미누 등대',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -182,7 +182,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'france',
     title: '노르망디',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -198,7 +198,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'france',
     title: '',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -214,7 +214,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'usa',
     title: '뉴욕',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -230,7 +230,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'usa',
     title: '마이애미',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -246,7 +246,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'usa',
     title: '마운트 러쉬모어',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -262,7 +262,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'australia',
     title: '코알라',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -278,7 +278,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'australia',
     title: '시드니',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -294,7 +294,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'australia',
     title: '캥거루',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -310,7 +310,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'australia',
     title: '오페라 하우스',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -326,7 +326,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'canada',
     title: '오페라 하우스',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -342,7 +342,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'canada',
     title: 'moraine-lake',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -358,7 +358,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'canada',
     title: '천국의 사원',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -374,7 +374,7 @@ module.exports = [
     userId: 'minsoftk',
     nation: 'canada',
     title: '천국의 사원',
-    comment: [
+    comments: [
       {
         id: uniqid(),
         userId: 'minsoftk',
@@ -387,13 +387,15 @@ module.exports = [
   },
 ];
 
+module.exports = posts.map(post => ({ ...post, description: `${post.title} 너무 멋있네요!` }));
+
 // module.exports = [
 //   {
 //     id: 1,
 //     userId: 'someone',
 //     nation: 'korea',
 //     title: '경복궁',
-//     comments: [
+//     commentss: [
 //       {
 //         id: 2,
 //         userId: 'someone',
@@ -409,7 +411,7 @@ module.exports = [
 //     userId: 'someone2',
 //     nation: 'usa',
 //     title: '경복궁',
-//     comments: [
+//     commentss: [
 //       {
 //         id: 3,
 //         userId: 'someone',
@@ -425,7 +427,7 @@ module.exports = [
 //     userId: 'someone3',
 //     nation: 'korea',
 //     title: '경복궁',
-//     comments: [
+//     commentss: [
 //       {
 //         id: 4,
 //         userId: 'someone',
@@ -444,7 +446,7 @@ module.exports = [
 //     userId: 'someone',
 //     nation: 'korea',
 //     title: '경복궁',
-//     comments: [
+//     commentss: [
 //       {
 //         id: 2,
 //         userId: 'someone',
