@@ -113,6 +113,11 @@ app.post('/post/comment/:id', (req, res) => {
     ...req.body,
   };
 
+  const newComment = {
+    id: uniqid(),
+    ...req.body,
+  };
+
   posts = posts.map(post =>
     post.id === id
       ? {

@@ -1,22 +1,15 @@
 import '../scss/pages/_main.scss';
 import requests from './requests';
 
-import france1 from '../img/france1.jpg';
-import france2 from '../img/france2.jpg';
-// import korea1 from '../img/korea1.jpg';
-// import korea2 from '../img/korea2.jpg';
-// import korea3 from '../img/korea3.jpg';
-// import usa1 from '../img/usa1.jpg';
-// import usa2 from '../img/usa2.jpg';
-
 const $cardsContainer = document.querySelector('.cards-container');
 const $selectBox = document.querySelector('.select-country');
 const $loginUserId = document.querySelector('.login-user-id');
-const $cardInfo = document.querySelector('.card__like-button');
 
 let posts = [];
 
 let selectedNation = 'korea';
+
+let liked = false;
 
 const render = () => {
   const _posts = posts.filter(post => post.nation === selectedNation);
@@ -51,6 +44,7 @@ const setPosts = _posts => {
 const fetchPost = async () => {
   try {
     const { data } = await requests.getPostsByNation(selectedNation);
+    console.log({ data });
     setPosts(data);
   } catch (error) {
     console.error(error);
@@ -59,33 +53,53 @@ const fetchPost = async () => {
 
 //  initial rendering
 window.addEventListener('DOMContentLoaded', () => {
-  // if (JSON.parse(localStorage.getItem('userId')) === null)
   // moment로 로그인된 것을 가정
-  localStorage.setItem('userId', 'moment');
-  $loginUserId.innerText = 'login : moment';
+  localStorage.setItem('userId', 'admin');
+  selectedNation = sessionStorage.getItem('nation')
+    ? sessionStorage.getItem('nation')
+    : sessionStorage.setItem('nation', selectedNation);
+  $selectBox.value = selectedNation;
+  $loginUserId.innerText = 'admin';
   fetchPost();
 });
 
 $selectBox.addEventListener('change', e => {
   selectedNation = e.target.value;
+  console.log(selectedNation);
+  sessionStorage.setItem('nation', selectedNation);
   fetchPost();
 });
 
 $cardsContainer.addEventListener('click', async e => {
   const cardPostId = e.target.closest('.card').dataset.id;
   sessionStorage.setItem('postId', cardPostId);
+});
+
+$cardsContainer.addEventListener('click', async e => {
+  if (!e.target.classList.contains('fa-heart')) return;
+
+  // 색칠된 하트를 가지고 있는가?
+  liked = e.target.classList.contains('fas');
+
+  if (liked) {
+    e.target.parentNode.classList.toggle('hidden');
+    e.target.parentNode.previousElementSibling.classList.toggle('hidden');
+  } else {
+    e.target.parentNode.classList.toggle('hidden');
+    e.target.parentNode.nextElementSibling.classList.toggle('hidden');
+  }
+  const cardPostId = e.target.closest('.card').dataset.id;
+  sessionStorage.setItem('postId', cardPostId);
   try {
     const response = await requests.postToggleLiked(cardPostId);
     if (response.status === 200) {
-      setPosts(
-        posts.map(post =>
-          post.id === +cardPostId
-            ? {
-                ...post,
-                liked: !post.liked,
-              }
-            : post
-        )
+      posts.map(post =>
+        post.id === +cardPostId
+          ? {
+              ...post,
+              liked: !post.liked,
+            }
+          : post
       );
     }
   } catch (error) {

@@ -25,7 +25,7 @@
     text-decoration: none;
     border: 1px solid lightblue;
     border-radius: rem(5px);
-    background-color: lightblue;
+    background-color: rgb(15, 73, 92);
     color: white;
     padding: rem(10px);
   }
@@ -70,8 +70,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-  justify-content: space-around;
   background-image: url('../../img//main_bg.jpg');
 }
 
@@ -83,16 +81,18 @@
 .card {
   display: flex;
   flex-direction: column;
+  flex: 0 0 28%;
 
-  margin: 0 rem(15px);
-  margin-bottom: rem(90px);
+  margin: 0 0 rem(90px) rem(40px);
+
   position: relative;
   font-weight: 700;
   font-size: rem(20px);
 
   img {
-    width: rem(230px);
+    width: 100%;
     height: rem(230px);
+    border-radius: rem(10px);
     cursor: pointer;
   }
   img:hover {
