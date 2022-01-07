@@ -7,13 +7,7 @@ const uniqid = require('uniqid');
 
 let posts = require('./posts');
 
-const getPostById = (res, id) => {
-  const postById = posts.find(post => post.id === +id);
-  if (!postById) {
-    res.status(404).send('해당 post가 존재하지 않습니다.');
-  }
-  return postById;
-};
+const getPostById = id => posts.find(post => post.id === id);
 
 const PORT = 9000;
 
@@ -45,10 +39,13 @@ app.get('/posts', (req, res) => {
 
 app.patch('/post/liked/:id', (req, res) => {
   const { id } = req.params;
-  const postById = getPostById(res, id);
-  if (!postById) return;
+  const postById = getPostById(id);
+  if (!postById?.id) {
+    res.status(404).send('해당 post가 존재하지 않습니다.');
+    return;
+  }
 
-  posts = posts.map(post => (post.id === +id ? { ...post, liked: !post.liked } : post));
+  posts = posts.map(post => (post.id === id ? { ...post, liked: !post.liked } : post));
   res.send();
 });
 
@@ -59,47 +56,57 @@ app.post('/upload', upload.single('img'), (req, res) => {
 });
 
 app.post('/post', (req, res) => {
-  posts = [
-    ...posts,
-    {
-      ...req.body,
-      id: uniqid(),
-      liked: false,
-      comments: [],
-    },
-  ];
-  res.send();
+  const newPost = {
+    ...req.body,
+    id: uniqid(),
+    userId: uniqid(),
+    liked: false,
+    comments: [],
+  };
+
+  posts = [...posts, newPost];
+  console.log(newPost.id);
+  res.status(201).send(newPost.id);
 });
 
 app.patch('/post/:id', (req, res) => {
   const { id } = req.params;
-  const postById = getPostById(res, id);
-  if (!postById) return;
+  const postById = getPostById(id);
+  if (!postById?.id) {
+    res.status(404).send('해당 post가 존재하지 않습니다.');
+    return;
+  }
 
   posts = posts.map(post =>
-    post.id === +id
+    post.id === id
       ? {
           ...post,
           ...req.body,
         }
       : post
   );
-  res.send(postById);
+  res.send(id);
 });
 
 // detailPage
 app.get('/post/:id', (req, res) => {
   const { id } = req.params;
-  const postById = getPostById(res, id);
-  if (!postById) return;
-
+  const postById = getPostById(id);
+  console.log(id, postById);
+  if (!postById.id) {
+    res.status(404).send('해당 post가 존재하지 않습니다.');
+    return;
+  }
   res.send(postById);
 });
 
 app.post('/post/comment/:id', (req, res) => {
   const { id } = req.params;
-  const postById = getPostById(res, id);
-  if (!postById) return;
+  const postById = getPostById(id);
+  if (!postById?.id) {
+    res.status(404).send('해당 post가 존재하지 않습니다.');
+    return;
+  }
 
   const newComment = {
     id: uniqid(),
@@ -107,10 +114,10 @@ app.post('/post/comment/:id', (req, res) => {
   };
 
   posts = posts.map(post =>
-    post.id === +id
+    post.id === id
       ? {
           ...post,
-          comment: [...post.comment, newComment],
+          comments: [...post.comment, newComment],
         }
       : post
   );
@@ -119,10 +126,13 @@ app.post('/post/comment/:id', (req, res) => {
 
 app.delete('/post/:id', (req, res) => {
   const { id } = req.params;
-  const postById = getPostById(res, id);
-  if (!postById) return;
+  const postById = getPostById(id);
+  if (!postById?.id) {
+    res.status(404).send('해당 post가 존재하지 않습니다.');
+    return;
+  }
 
-  posts = posts.filter(post => post.id !== +id);
+  posts = posts.filter(post => post.id !== id);
   res.send();
 });
 

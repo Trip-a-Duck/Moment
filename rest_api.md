@@ -12,14 +12,11 @@
 
 // moment 버튼을 누른 경우
 
-<!-- - post('/post/:id', -->
-
 - post('/post',
   {
   userId: "someone",
   nation: 'korea',
   title: '경복궁',
-  <!-- liked: false, -->
   image: 'url',
   description: "내가 경복궁에 가서.})
 
@@ -28,9 +25,6 @@
 - post('/upload', {formData});
 
 // detail.html에서 수정 버튼을 눌렀을 때 원본 포스팅 contents 요청
-
-<!-- detail page와 중복? -->
-<!-- - get('/post/edit/:id') -->
 
 // 수정 요청
 
