@@ -45,7 +45,7 @@ const posts = [
         description: '나는 천재다!',
       },
     ],
-    liked: true,
+    liked: false,
     image: './img/korea2.jpg',
     description: '경주가 너무 멋있네용...',
   },
@@ -125,7 +125,7 @@ const posts = [
         description: 'ㅋㅋㅋ',
       },
     ],
-    liked: true,
+    liked: false,
     image: './img/france3.jpg',
     description: '경주가 너무 멋있네용...',
   },
@@ -356,7 +356,7 @@ const posts = [
   {
     id: uniqid(),
     userId: 'minsoftk',
-    nation: 'canada',
+    nation: 'china',
     title: '천국의 사원',
     comments: [
       {
@@ -365,15 +365,15 @@ const posts = [
         description: 'ㅋㅋㅋ',
       },
     ],
-    liked: true,
+    liked: false,
     image: './img/china1.jpg',
     description: '경주가 너무 멋있네용...',
   },
   {
     id: uniqid(),
     userId: 'minsoftk',
-    nation: 'canada',
-    title: '천국의 사원',
+    nation: 'china',
+    title: '만리장성',
     comments: [
       {
         id: uniqid(),
@@ -382,7 +382,7 @@ const posts = [
       },
     ],
     liked: true,
-    image: './img/china1.jpg',
+    image: './img/china2.jpg',
     description: '경주가 너무 멋있네용...',
   },
 ];
