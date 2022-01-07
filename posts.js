@@ -185,7 +185,7 @@ const posts = [
     comments: [
       {
         id: uniqid(),
-        userId: 'minsoftk',
+        userId: 'Ssong',
         description: 'ㅋㅋㅋ',
       },
     ],
@@ -227,7 +227,7 @@ const posts = [
   },
   {
     id: uniqid(),
-    userId: 'minsoftk',
+    userId: 'Ssong',
     nation: 'usa',
     title: '마이애미',
     comments: [
@@ -259,13 +259,13 @@ const posts = [
   },
   {
     id: uniqid(),
-    userId: 'minsoftk',
+    userId: 'admin',
     nation: 'australia',
     title: '코알라',
     comments: [
       {
         id: uniqid(),
-        userId: 'minsoftk',
+        userId: 'Ssong',
         description: 'ㅋㅋㅋ',
       },
     ],
@@ -323,7 +323,7 @@ const posts = [
   },
   {
     id: uniqid(),
-    userId: 'minsoftk',
+    userId: 'admin',
     nation: 'canada',
     title: '오페라 하우스',
     comments: [
@@ -361,7 +361,7 @@ const posts = [
     comments: [
       {
         id: uniqid(),
-        userId: 'minsoftk',
+        userId: 'Ssong',
         description: 'ㅋㅋㅋ',
       },
     ],
