@@ -31,17 +31,17 @@
 
 ## usecase
 
-![](plan/usecase.jpg)
+![](Plan/usecase.jpg)
 
 ## UI
 
-![](plan/ui.jpg)
+![](Plan/ui.jpg)
 
 ## storyboard
 
 - main page
 
-![](plan/story_board/main.jpg)
+![](Plan/story_board/main.jpg)
 
 - upload page
 
@@ -50,11 +50,11 @@
 - detail page
 - mine
 
-![](plan/story_board/my_detail.jpg)
+![](Plan/story_board/my_detail.jpg)
 
 - other
 
-![](plan/story_board/other_detail.jpg)
+![](Plan/story_board/other_detail.jpg)
 
 ## Tech
 
