@@ -59,7 +59,7 @@ app.post('/post', (req, res) => {
   const newPost = {
     ...req.body,
     id: uniqid(),
-    userId: uniqid(),
+    userId: 'admin',
     liked: false,
     comments: [],
   };
