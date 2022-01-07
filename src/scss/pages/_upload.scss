@@ -2,13 +2,6 @@
 @use '../base' as *;
 @use '../layout/container' as *;
 
-.container-post {
-  text-align: center;
-  padding-top: rem(50%);
-  width: 60%;
-  margin: 0 auto;
-}
-
 .post {
   display: flex;
   justify-content: center;
@@ -18,25 +11,22 @@
 .post-header {
   width: 100%;
   height: rem(50px);
-  text-align: center;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: rem(40px);
 
   .go-back-btn {
     all: unset;
-    position: absolute;
-    width: rem(40px);
-    height: 100%;
-    left: 0;
-    top: rem(-10px);
     font-size: rem(30px);
     cursor: pointer;
   }
 
   h1 {
-    font-size: rem(40px);
+    font-size: rem(60px);
     font-weight: bold;
   }
 }
+
 .post-title-form {
   margin: rem(30px) auto 0;
 
@@ -72,7 +62,7 @@
   height: rem(50px);
   width: rem(100px);
   border-radius: 10px;
-  font-size: 20px;
+  font-size: rem(30px);
   display: block;
   cursor: pointer;
   text-align: center;
@@ -93,11 +83,13 @@
   border: 1px solid black;
   border-radius: 5px;
   margin: rem(20%) auto rem(10%);
+  text-align: center;
 
   span {
     display: inline-block;
     height: 100%;
     padding-top: rem(200px);
+    font-size: rem(40px);
   }
 }
 

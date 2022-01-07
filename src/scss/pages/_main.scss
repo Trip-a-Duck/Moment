@@ -5,13 +5,13 @@
 .header {
   position: relative;
   text-align: center;
-  font-family: 'Open Sans';
   font-weight: 800;
   margin-top: rem(50px);
   margin-bottom: rem(30px);
-  font-size: 4rem;
+
   h1 {
     padding: rem(10px);
+    font-size: rem(60px);
   }
   i {
     font-size: rem(30px);
@@ -30,10 +30,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .login-user-id {
-    font-size: rem(15px);
   }
 }
 
@@ -84,7 +80,7 @@
 
   position: relative;
   font-weight: 700;
-  font-size: rem(20px);
+  font-size: rem(30px);
 
   img {
     width: 100%;

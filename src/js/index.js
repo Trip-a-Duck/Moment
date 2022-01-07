@@ -3,7 +3,7 @@ import requests from './requests';
 
 const $cardsContainer = document.querySelector('.cards-container');
 const $selectBox = document.querySelector('.select-country');
-const $loginUserId = document.querySelector('.login-user-id');
+const $loginUserId = document.querySelector('.current-user-id');
 
 let posts = [];
 
@@ -44,7 +44,6 @@ const setPosts = _posts => {
 const fetchPost = async () => {
   try {
     const { data } = await requests.getPostsByNation(selectedNation);
-    console.log({ data });
     setPosts(data);
   } catch (error) {
     console.error(error);
@@ -63,7 +62,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 $selectBox.addEventListener('change', e => {
   selectedNation = e.target.value;
-  console.log(selectedNation);
   sessionStorage.setItem('nation', selectedNation);
   fetchPost();
 });
@@ -75,7 +73,7 @@ $cardsContainer.addEventListener('click', ({ target }) => {
 });
 
 $cardsContainer.addEventListener('click', async ({ target }) => {
-  if (!target.classList.contains('card') || target.classList.contains('fa-heart')) return;
+  if (!target.classList.contains('card') && !target.classList.contains('fa-heart')) return;
   liked = target.classList.contains('fas');
 
   if (liked) {
