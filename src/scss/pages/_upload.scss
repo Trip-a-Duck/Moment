@@ -88,9 +88,10 @@
   display: block;
   width: rem(450%);
   height: rem(450%);
-  background-repeat: no-repeat;
-  background-size: contain;
+  background: no-repeat center;
+  background-size: cover;
   border: 1px solid black;
+  border-radius: 5px;
   margin: rem(20%) auto rem(10%);
 
   span {

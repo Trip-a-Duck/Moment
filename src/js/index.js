@@ -51,11 +51,12 @@ const fetchPost = async () => {
   }
 };
 
-//  initial rendering
 window.addEventListener('DOMContentLoaded', () => {
-  // moment로 로그인된 것을 가정
   localStorage.setItem('userId', 'admin');
-  sessionStorage.setItem('nation', selectedNation);
+  selectedNation = sessionStorage.getItem('nation')
+    ? sessionStorage.getItem('nation')
+    : sessionStorage.setItem('nation', selectedNation);
+  $selectBox.value = selectedNation;
   $loginUserId.innerText = 'admin';
   fetchPost();
 });
@@ -67,23 +68,25 @@ $selectBox.addEventListener('change', e => {
   fetchPost();
 });
 
-$cardsContainer.addEventListener('click', async e => {
-  if (!e.target.classList.contains('fa-heart')) return;
+$cardsContainer.addEventListener('click', ({ target }) => {
+  if (!target.classList.contains('card') && target.tagName !== 'IMG') return;
+  const cardPostId = target.closest('.card').dataset.id;
+  sessionStorage.setItem('postId', cardPostId);
+});
 
-  // 색칠된 하트를 가지고 있는가?
-  liked = e.target.classList.contains('fas');
+$cardsContainer.addEventListener('click', async ({ target }) => {
+  if (!target.classList.contains('card') || target.classList.contains('fa-heart')) return;
+  liked = target.classList.contains('fas');
 
   if (liked) {
-    e.target.parentNode.classList.toggle('hidden');
-    e.target.parentNode.previousElementSibling.classList.toggle('hidden');
+    target.parentNode.classList.toggle('hidden');
+    target.parentNode.previousElementSibling.classList.toggle('hidden');
   } else {
-    e.target.parentNode.classList.toggle('hidden');
-    e.target.parentNode.nextElementSibling.classList.toggle('hidden');
+    target.parentNode.classList.toggle('hidden');
+    target.parentNode.nextElementSibling.classList.toggle('hidden');
   }
-
-  const cardPostId = e.target.closest('.card').dataset.id;
+  const cardPostId = target.closest('.card').dataset.id;
   sessionStorage.setItem('postId', cardPostId);
-
   try {
     const response = await requests.postToggleLiked(cardPostId);
     if (response.status === 200) {
