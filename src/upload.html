@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous" />
+  </head>
+  <body>
+    <section class="container">
+      <header class="post-header">
+        <a href="./index.html" class="go-back-btn">◀</a>
+        <h1>MOMENT</h1>
+        <span class="current-user-id">admin</span>
+      </header>
+      <article class="post">
+        <div class="post-img">
+          <form class="post-title-form">
+            <label for="post-title" aria-label="포스트 제목"></label>
+            <input type="text" id="post-title" placeholder="포스트 제목을 입력해주세요." />
+          </form>
+          <div class="uploaded-image"><span>이미지</span></div>
+          <div class="buttons">
+            <input class="input-file" type="file" accept="image/*" />
+            <!-- <button class="upload-btn">upload</button> -->
+          </div>
+        </div>
+        <div class="post-content">
+          <div class="icon-control">
+            <select class="select-country" placeholder="Select Country">
+              <option value="" defaultValue>국가 선택</option>
+              <option value="australia">호주</option>
+              <option value="canada">캐나다</option>
+              <option value="china">중국</option>
+              <option value="korea">한국</option>
+              <option value="france">프랑스</option>
+              <option value="usa">미국</option>
+            </select>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <form class="post-desc-form">
+            <label for="post-desc" aria-label="포스트 내용"></label>
+            <textarea id="post-desc" cols="30" rows="10" placeholder="포스트 내용을 작성해주세요."></textarea>
+            <button class="post-btn" type="submit">moment</button>
+          </form>
+        </div>
+      </article>
+    </section>
+  </body>
+</html>

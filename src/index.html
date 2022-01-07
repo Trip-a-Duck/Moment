@@ -1,13 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="./js/index.js"></script>
+    <title>Moment</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous" />
   </head>
   <body>
-    <h1>hi</h1>
+    <div class="container">
+      <header class="header">
+        <div class="align-title">
+          <a class="posting-btn" href="./upload.html">포스팅하기</a>
+          <h1>MOMENT</h1>
+          <span class="current-user-id">admin</span>
+        </div>
+        <div class="icon-control">
+          <select class="select-country" placeholder="Select Country">
+            <option value="korea" defaultValue>한국</option>
+            <option value="australia">호주</option>
+            <option value="france">프랑스</option>
+            <option value="canada">캐나다</option>
+            <option value="usa">미국</option>
+            <option value="china">중국</option>
+          </select>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </header>
+      <main>
+        <ul class="cards-container">
+          <!-- 동적으로 생성되어야 하는 데이터들 -->
+        </ul>
+      </main>
+    </div>
   </body>
 </html>

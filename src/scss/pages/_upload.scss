@@ -1,0 +1,135 @@
+@use '../utils' as *;
+@use '../base' as *;
+@use '../layout/container' as *;
+
+.post {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(50px);
+}
+
+.post-header {
+  width: 100%;
+  height: rem(50px);
+  display: flex;
+  justify-content: space-between;
+  margin-top: rem(40px);
+
+  .go-back-btn {
+    all: unset;
+    font-size: rem(30px);
+    cursor: pointer;
+  }
+
+  h1 {
+    font-size: rem(60px);
+    font-weight: bold;
+  }
+}
+
+.post-title-form {
+  margin: rem(30px) auto 0;
+
+  #post-title {
+    font-size: 20px;
+    width: rem(380px);
+    height: rem(35px);
+    padding: 0 rem(15px);
+    border: none;
+    border-bottom: rem(3px) solid black;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.upload-btn {
+  background-color: rgb(61, 248, 133);
+  height: rem(50px);
+  width: rem(100px);
+  border-radius: 10px;
+  font-size: 20px;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.post-btn {
+  margin-top: rem(20px);
+  margin-left: auto;
+  background-color: #5992ff;
+  height: rem(50px);
+  width: rem(100px);
+  border-radius: 10px;
+  font-size: rem(30px);
+  display: block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.buttons {
+  margin-top: rem(20px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.uploaded-image {
+  display: block;
+  width: rem(450%);
+  height: rem(450%);
+  background: no-repeat center;
+  background-size: cover;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: rem(20%) auto rem(10%);
+  text-align: center;
+
+  span {
+    display: inline-block;
+    height: 100%;
+    padding-top: rem(200px);
+    font-size: rem(40px);
+  }
+}
+
+.post-content {
+  padding-top: rem(37%);
+  margin-left: rem(40px);
+
+  .icon-control {
+    width: 100%;
+    text-align: right;
+    position: relative;
+
+    .select-country {
+      padding: rem(5px);
+      padding-left: rem(15px);
+      width: rem(250px);
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: transparent;
+      font-size: rem(20px);
+      z-index: 10;
+    }
+
+    .fa-chevron-down {
+      position: absolute;
+      top: rem(10px);
+      right: rem(10px);
+      pointer-events: none;
+    }
+  }
+}
+
+#post-desc {
+  margin-top: rem(14%);
+  width: rem(400%);
+  height: rem(450%);
+  padding: rem(20px) 0 0 rem(20px);
+  font-size: rem(16px);
+
+  &:focus {
+    outline: none;
+  }
+}
