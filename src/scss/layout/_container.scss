@@ -1,9 +1,11 @@
 @use '../utils' as *;
+@import url(https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap);
 
 .container {
   width: 60%;
   margin: 0 auto;
   position: relative;
+  font-family: 'Hi Melody', cursive;
 }
 
 .current-user-id {
