@@ -89,7 +89,6 @@ const fetchPost = async e => {
       const { data: id } = await requests.createPost(getPostPayload(uploadedImage));
       state.post.id = id;
     }
-    console.log(post.id);
     sessionStorage.setItem('postId', post.id);
     alert(`포스트가 ${isEditing ? '수정' : '등록'}되었습니다.`);
     location.href = DETAIL_PAGE;
