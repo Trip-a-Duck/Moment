@@ -75,7 +75,7 @@ $cardsContainer.addEventListener('click', async e => {
   const cardPostId = e.target.closest('.card').dataset.id;
   sessionStorage.setItem('postId', cardPostId);
   try {
-    const response = await requests.postToggleLikedButton(cardPostId);
+    const response = await requests.postToggleLiked(cardPostId);
     if (response.status === 200) {
       setPosts(
         posts.map(post =>
