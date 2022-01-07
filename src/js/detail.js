@@ -84,7 +84,7 @@ const basicRequests = async e => {
     return;
   if (e.target.classList.contains('delete')) {
     try {
-      var result = confirm('정말 삭제하시겠습니까?');
+      const result = confirm('정말 삭제하시겠습니까?');
       if (result) {
         const response = await request.deletePost(postId);
         if (response.status === 200) {
