@@ -75,7 +75,7 @@ $cardsContainer.addEventListener('click', ({ target }) => {
 });
 
 $cardsContainer.addEventListener('click', async ({ target }) => {
-  if (!target.classList.contains('card') || target.classList.contains('fa-heart')) return;
+  if (!target.classList.contains('card') && !target.classList.contains('fa-heart')) return;
   liked = target.classList.contains('fas');
 
   if (liked) {

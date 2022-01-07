@@ -117,7 +117,7 @@ app.post('/post/comment/:id', (req, res) => {
     post.id === id
       ? {
           ...post,
-          comments: [...post.comment, newComment],
+          comments: [...post.comments, newComment],
         }
       : post
   );

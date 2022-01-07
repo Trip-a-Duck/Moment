@@ -80,7 +80,7 @@ const fetchPost = async e => {
   try {
     if (isEditing) {
       let uploadedImage = null;
-      if ($uploadedImage.style.backgroundImage !== `url(${post.image})`) {
+      if ($uploadedImage.style.backgroundImage !== `url("${post.image}")`) {
         uploadedImage = await uploadImage();
       }
       await requests.patchPost(postId, getPostPayload(uploadedImage));
